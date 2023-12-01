@@ -25,7 +25,7 @@
                     <div class="login-wrap p-0">
                         <form action="#" class="signin-form" id="form1" runat="server">
                             <div class="form-group">
-                                <asp:TextBox ID="TextBoxUsuario" class="form-control" placeholder="Ingrese el correo" runat="server" required></asp:TextBox>
+                                <asp:TextBox ID="TextBoxUsuario" class="form-control" placeholder="Ingrese el usuario" runat="server" required></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <asp:TextBox ID="TextBoxClave" class="form-control" TextMode="Password" runat="server" placeholder="Ingrese la contraseña" required></asp:TextBox>
