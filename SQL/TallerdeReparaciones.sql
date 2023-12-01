@@ -58,6 +58,36 @@ CREATE TABLE DetallesReparacion (
     FechaInicio DATETIME,
     FechaFin DATETIME
 );
+GO
+
+-- Crear la tabla Empleados
+CREATE TABLE Empleados (
+	codigo INT IDENTITY PRIMARY KEY,
+	correo VARCHAR(50) NOT NULL,
+	clave VARCHAR(50) NOT NULL,
+	CONSTRAINT uq_correo UNIQUE(correo)
+);
+GO
+
+-- Agregar empleado
+-- INSERT INTO Empleados (correo, clave) VALUES ('admin','admin')
+-- ver tabla de empleado
+-- SELECT * FROM Empleados
+
+-- Crear la tabla Roles
+CREATE TABLE Roles
+(
+	codigo INT IDENTITY PRIMARY KEY,
+	nombre VARCHAR(40) CONSTRAINT uq_nombre UNIQUE
+);
+GO
+
+-- Crear la tabla EmpleadosRoles
+CREATE TABLE EmpleadosRoles
+(
+	idempleado INT CONSTRAINT fk_idempleado FOREIGN KEY(idempleado) REFERENCES Empleados(codigo),
+	idrole INT CONSTRAINT fk_idrole FOREIGN KEY(idrole) REFERENCES Roles(codigo),
+);
 
 -- STORE PROCEDURE
 
@@ -182,6 +212,15 @@ BEGIN
     SELECT * FROM Tecnicos WHERE TecnicoID = @TecnicoID;
 END;
 
+-- Stored Procedure para validar empleado
+CREATE PROCEDURE ValidarEmpleado
+@correo VARCHAR(50),
+@clave VARCHAR(50)
+AS
+BEGIN
+    SELECT correo, clave FROM Empleados WHERE correo=@correo and clave=@clave
+END;
+
 EXECUTE AgregarUsuario;
 EXECUTE EliminarUsuario;
 EXECUTE ModificarUsuario;
@@ -196,5 +235,7 @@ EXECUTE AgregarTecnico;
 EXECUTE EliminarTecnico;
 EXECUTE ModificarTecnico;
 EXECUTE ConsultarTecnico;
+
+EXECUTE ValidarEmpleado;
 
 SELECT *  FROM Equipos where EquipoID = 1

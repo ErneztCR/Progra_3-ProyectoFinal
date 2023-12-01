@@ -25,14 +25,13 @@
                     <div class="login-wrap p-0">
                         <form action="#" class="signin-form" id="form1" runat="server">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" required>
+                                <asp:TextBox ID="TextBoxUsuario" class="form-control" placeholder="Ingrese el correo" runat="server" required></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <input id="password-field" type="password" class="form-control" placeholder="Password" required>
-                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <asp:TextBox ID="TextBoxClave" class="form-control" TextMode="Password" runat="server" placeholder="Ingrese la contraseña" required></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                                <asp:Button ID="ButtonSignIn" class="form-control btn btn-primary submit px-3" runat="server" Text="Sign In" OnClick="ButtonSignIn_Click" />
                             </div>
                         </form>
                     </div>

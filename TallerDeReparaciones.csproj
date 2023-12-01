@@ -102,6 +102,7 @@
     <Compile Include="Asignaciones.aspx.designer.cs">
       <DependentUpon>Asignaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="clases\ClaseEmpleados.cs" />
     <Compile Include="clases\ClaseEquipos.cs" />
     <Compile Include="clases\ClaseTecnicos.cs" />
     <Compile Include="clases\ClaseUsuarios.cs" />

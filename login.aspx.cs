@@ -13,5 +13,31 @@ namespace TallerDeReparaciones
         {
 
         }
+
+        public void alertas(String texto)
+        {
+            string message = texto;
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.Append("<script type = 'text/javascript'>");
+            sb.Append("window.onload=function(){");
+            sb.Append("alert('");
+            sb.Append(message);
+            sb.Append("')};");
+            sb.Append("</script>");
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+        }
+
+        protected void ButtonSignIn_Click(object sender, EventArgs e)
+        {
+            clases.ClaseEmpleados empleado = new clases.ClaseEmpleados(TextBoxUsuario.Text, TextBoxClave.Text);
+            if (clases.ClaseEmpleados.ValidarLogIn() == 1)
+            {
+                Response.Redirect("Usuarios.aspx");
+            }
+            else
+            {
+                alertas("Usuario o clave incorrectos");
+            }
+        }
     }
 }
