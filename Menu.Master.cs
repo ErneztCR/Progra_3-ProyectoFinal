@@ -11,7 +11,7 @@ namespace TallerDeReparaciones
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LabelUserName.Text = clases.ClaseEmpleados.Correo;
         }
     }
 }
