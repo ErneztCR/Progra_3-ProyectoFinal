@@ -70,7 +70,7 @@ CREATE TABLE Empleados (
 GO
 
 -- Agregar empleado
--- INSERT INTO Empleados (correo, clave) VALUES ('admin','admin')
+-- INSERT INTO Empleados (correo, clave) VALUES ('mbrenes@correo.com','1')
 -- ver tabla de empleado
 -- SELECT * FROM Empleados
 
